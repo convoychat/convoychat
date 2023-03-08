@@ -1,1 +1,1 @@
-docs/oss/security.md
+/docs/oss/security.md
