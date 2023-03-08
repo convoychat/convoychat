@@ -1,4 +1,4 @@
-branch: "master"
+branch: "main"
 schema: "server/graphql/schema.gql"
 
 notifications:
