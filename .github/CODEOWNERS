@@ -1,0 +1,61 @@
+# This is a comment.
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# @C-EO will be requested for
+# review when someone opens a pull request.
+*                               @C-EO   @convoychat/core
+
+# File pattern owners
+*.bat                           @C-EO   @convoychat/core
+*.dockerignore                  @C-EO   @convoychat/core
+*.editorconfig                  @C-EO   @convoychat/core
+*.env                           @C-EO   @convoychat/core
+*.eslintignore                  @C-EO   @convoychat/core
+*.gitignore                     @C-EO   @convoychat/core
+*.html                          @C-EO   @convoychat/core    @convoychat/docs
+*.ico                           @C-EO   @convoychat/core
+*.js                            @C-EO   @convoychat/core
+*.json                          @C-EO   @convoychat/core
+*.jsx                           @C-EO   @convoychat/core
+*.lock                          @C-EO   @convoychat/core
+*.md                            @C-EO   @convoychat/core    @convoychat/docs
+*.mdx                           @C-EO   @convoychat/core    @convoychat/docs
+*.png                           @C-EO   @convoychat/core
+*.prettierignore                @C-EO   @convoychat/core
+*.prettierrc                    @C-EO   @convoychat/core
+*.sh                            @C-EO   @convoychat/core
+*.svg                           @C-EO   @convoychat/core
+*.ts                            @C-EO   @convoychat/core
+*.tsx                           @C-EO   @convoychat/core
+*.yml                           @C-EO   @convoychat/core
+
+# Owners for the '.convoychat' directory and its contents.
+/.convoychat/                   @C-EO   @convoychat/core
+/.convoychat                    @C-EO   @convoychat/core
+.convoychat/*                   @C-EO   @convoychat/core
+
+# Owners for the '.github' directory and its contents.
+.github/ISSUE_TEMPLATE/*        @C-EO   @convoychat/core 
+.github/PULL_REQUEST_TEMPLATE/* @C-EO   @convoychat/core 
+.github/workflows               @C-EO   @convoychat/core
+
+# Owners for the '.vscode' directory and its contents.
+/.vscode/ 
+
+# Owners for the 'client' directory and its contents.
+/client/                         @C-EO  @convoychat/core
+/client                          @C-EO  @convoychat/core
+client/*                         @C-EO  @convoychat/core
+
+# Owners for the 'docs' directory and its contents.
+/docs/                           @C-EO  @convoychat/core
+/docs                            @C-EO  @convoychat/core
+docs/*                           @C-EO  @convoychat/core
+
+# Owners for the 'server' directory and its contents.
+/server/                         @C-EO  @convoychat/core
+/server                          @C-EO  @convoychat/core
+server/*                         @C-EO  @convoychat/core
+

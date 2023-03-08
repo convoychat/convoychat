@@ -1,0 +1,10 @@
+blank_issues_enabled: false
+contact_links:
+  - name: GitHub Discussions
+    url: https://github.com/c-eo/convoychat/discussions
+    about: Please ask and answer questions here.
+  - name: Code of Conduct
+    url: https://github.com/c-eo/convoychat/blob/main/docs/code_of_conduct.md
+    about: Please endeavor to adhere to our Code of Conduct.
+  - name: Contributing Guidelines
+    url: https://github.com/c-eo/convoychat/blob/main/docs/contributing.md

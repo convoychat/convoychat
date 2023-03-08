@@ -1,0 +1,105 @@
+name: Bug Report
+description: Found a bug within ConvoyChat? Report it here.
+title: "[BUG REPORT]:"
+labels: ["bug"]
+assignees:
+  - C-EO
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this bug report!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: true
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: Please give a descriptive report about what happened.
+      placeholder: ex. 'The ConvoyChat client isn't starting.'
+    validations:
+      required: true
+  - type: textarea
+    id: system
+    attributes:
+      label: System Specifications
+      description: Please state your system specs.
+      placeholder: |
+        OS: Windows 10 21H2 (OS Build 19044.1826)
+        OS architecture: 64-bit
+        Device model: HP Envy 17" 4K-ULTRA HD LED BACKLIGHT
+        Processor:	Intel(R) i9 12900K @ 4.5GHz
+        Ram size: 32 GB
+        Storage: 4 TB
+        Language: English (United States)
+    validations:
+      required: true
+  - type: dropdown
+    id: version
+    attributes:
+      label: ConvoyChat Version
+      description: Please define your ConvoyChat version.
+      options:
+        - ConvoyChat v0.0.0-beta
+        - ConvoyChat v0.0.0
+        - ConvoyChat v1.0.0-beta
+        - ConvoyChat v1.0.0
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant Log Output
+      description: Please copy and paste any relevant log output. This will be automatically formatted into code, so no need for backticks.
+      placeholder: Paste your terminal or log output here.
+      render: bash
+    validations:
+      required: true      
+  - type: dropdown
+    id: reproduction
+    attributes:
+      label: Bug Reproduction
+      description: Did you try to reproduce the bug on your end?
+      options:
+        - "Yes"
+        - "No"
+    validations: 
+      required: true
+  - type: textarea
+    id: reproductiondetails
+    attributes:
+      label: Bug Reproduction (More Details)
+      description: If you answered "Yes" above, please list the steps you used to reproduce the bug.
+      placeholder: |
+        Clone repo.
+        Install dependencies.
+        Fill environment variables.
+        Start ConvoyChat using `npm run develop`.
+    validations: 
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Please upload any relevant screenshots below.      
+      placeholder: TIP\:\ You can just drag and drop your screenshot here.
+    validations:
+      required: true      
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Agreements
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/c-eo/convoychat/blob/main/docs/code_of_conduct.md) and [Contributing Guidlines](https://github.com/c-eo/convoychat/blob/main/docs/contributing.md)
+      options:
+        - label: I agree to follow this project's **Code of Conduct** and **Contributing Guidlines**.
+          required: true
+        - label: I confirm that I searched for similar bug reports and found no relevant ones.
+          required: true
+        - label: I agree and confirm that all information provided by me is true and accurate.
+          required: true

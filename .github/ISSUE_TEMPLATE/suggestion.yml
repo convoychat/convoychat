@@ -1,0 +1,55 @@
+name: Suggestion
+description: Have a suggestion or feature request for ConvoyChat? Report it here.
+title: "[SUGGESTION]:"
+labels: ["suggestion", "enhancement", "feature", "ui/ux"]
+assignees:
+  - C-EO
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to fill out this suggestion form!
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggestion
+      description: Please state your suggestion here.
+      placeholder: ex. 'More OAuth 2 providers.'
+    validations:
+      required: true
+  - type: textarea
+    id: more-info
+    attributes:
+      label: More Info
+      description: Is this something you feel many ConvoyChat users will find useful? (Make sure to give detailed info.)
+      placeholder: I think it would be great if ConvoyChat...
+    validations:
+      required: false
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots
+      description: Please upload any relevant screenshots below.      
+      placeholder: TIP\:\ You can just drag and drop your screenshot here.
+    validations:
+      required: true      
+  - type: checkboxes
+    id: terms
+    attributes:
+      label: Agreements
+      description: By submitting this issue, you agree to follow our [Code of Conduct](https://github.com/c-eo/convoychat/blob/main/docs/code_of_conduct.md) and [Contributing Guidlines](https://github.com/c-eo/convoychat/blob/main/docs/contributing.md)
+      options:
+        - label: I agree to follow this project's **Code of Conduct** and **Contributing Guidlines**.
+          required: true
+        - label: I confirm that I searched for similar bug reports and found no relevant ones.
+          required: true
+        - label: I agree and confirm that all information provided by me is true and accurate.
+          required: true
