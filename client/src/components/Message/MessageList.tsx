@@ -1,60 +1,56 @@
 import React from "react";
-import ContentLoader from "react-content-loader";
-import { Member, MessageEdge } from "graphql/generated/graphql";
+import styled from "styled-components";
+import { Member, Message as IMessage } from "graphql/generated/graphql";
 
-import MessageContainer from "components/Message/MessageContainer";
+import Message from "components/Message/Message";
 import { useAuthContext } from "contexts/AuthContext";
-
-import theme from "styles/theme";
-import { Flex } from "@convoy-ui";
+import { Loading } from "@convoy-ui";
 
 interface IMessageList {
-  messages?: Partial<MessageEdge>[];
-  isLoading?: boolean;
+  messages?: IMessage[];
+  onScroll?: (event: any) => void;
+  isFetchingMore?: boolean;
 }
 
-const MessageList: React.FC<IMessageList> = ({ messages, isLoading }) => {
-  const { user } = useAuthContext();
+const StyledMessageList = styled.section`
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
-  return (
-    <>
-      {isLoading && <Loader />}
-      {messages?.map(({ node }) => {
-        return (
-          <MessageContainer
-            id={node.id}
-            key={node.id}
-            date={node.createdAt}
-            content={node.content}
-            author={node.author as Member}
-            isAuthor={node.author.id === user.id}
-          />
-        );
-      })}
-    </>
-  );
-};
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: end;
+  @media (${p => p.theme.media.tablet}) {
+    margin-top: 70px;
+  }
+`;
 
-const Loader = () => {
-  return (
-    <Flex direction="column">
-      {[1, 2, 3, 4, 5].map(l => {
-        return (
-          <ContentLoader
-            speed={2}
-            height={80}
-            width="100%"
-            backgroundColor={theme.colors.dark1}
-            foregroundColor={theme.colors.dark2}
-          >
-            <rect x="15" y="10" rx="100" ry="100" width="35" height="35" />
-            <rect x="60" y="17" rx="4" ry="4" width="100" height="13" />
-            <rect x="60" y="40" rx="3" ry="3" width="250" height="10" />
-          </ContentLoader>
-        );
-      })}
-    </Flex>
-  );
-};
+const MessageList = React.forwardRef<HTMLElement, IMessageList>(
+  function MessageList({ messages, onScroll, isFetchingMore }, ref) {
+    const { user } = useAuthContext();
+
+    return (
+      <StyledMessageList
+        ref={ref}
+        onScrollCapture={onScroll}
+        className="message__list"
+      >
+        {isFetchingMore && <Loading />}
+        {messages?.map(message => {
+          return (
+            <Message
+              id={message.id}
+              key={message.id}
+              date={message.createdAt}
+              content={message.content}
+              author={message?.author as Member}
+              isAuthor={message?.author?.id === user.id}
+            />
+          );
+        })}
+      </StyledMessageList>
+    );
+  }
+);
 
 export default React.memo(MessageList);
